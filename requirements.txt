@@ -1,0 +1,8 @@
+nltk
+numpy
+pandas
+gensim
+spacy
+pyLDAvis
+matplotlib
+IPython
