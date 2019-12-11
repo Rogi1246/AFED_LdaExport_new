@@ -95,6 +95,8 @@ print(var2)
 var3 = dataT.keys()
 for key in dataT.keys():
     if isinstance(dataT[key], dict):
+        print("--------------TEST--------------")
+        print(key.get(key).get("from"))
         print(key, dataT[key])
 
 test_data.close()
