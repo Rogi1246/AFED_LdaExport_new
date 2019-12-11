@@ -89,4 +89,7 @@ print(dataT['@timestamp'])
 
 var = 'from' in dataT
 print(var)
+var2 = dataT.get('from')
+print(var2)
+
 test_data.close()
