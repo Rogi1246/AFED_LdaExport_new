@@ -11,9 +11,15 @@ elastic_client = Elasticsearch(['betaweb015', 'betaweb017', 'betaweb020'],
                          sniff_on_start=True, sniff_on_connection_fail=True, timeout=360)
 
 # toal num of documents to be retrieved :
-total_docs = 20
+total_docs = 200
 # print("\n calling Elasticsearch for", total_docs, "docs ")
 # API-call to the cluster to actually get docs
+
+# "must": [{
+#                 "match": {"text_plain": "pollution"}
+#             }, {
+#                 "match": {"text_plain": "waste"}
+#             }]
 
 query = {
     # "size": 10000,
@@ -21,9 +27,7 @@ query = {
     "query": {
         "bool": {
             "must": [{
-                "match": {"text_plain": "pollution"}
-            }, {
-                "match": {"text_plain": "waste"}
+                "match": {"text_plain": "islam"}
             }]
         }
     }
