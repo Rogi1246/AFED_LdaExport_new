@@ -94,7 +94,7 @@ print(var2)
 
 var3 = dataT.keys()
 for key in dataT.keys():
-    if not isinstance(dataT[key], dict):
+    if isinstance(dataT[key], dict):
         print(key, dataT[key])
 
 test_data.close()
