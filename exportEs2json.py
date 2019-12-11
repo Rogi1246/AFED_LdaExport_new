@@ -23,7 +23,7 @@ total_docs = 20
 
 query = {
     # "size": 10000,
-    # "_source": ["text_plain"],
+    "_source": ["main_content"],
     "query": {
         "bool": {
             "must": [{
@@ -64,7 +64,7 @@ for num, doc in enumerate(elastic_docs):
 
 print("\n exporting objects ")
 # epxort as json file
-docs.to_json("export_nofilter.json")
+docs.to_json("export_mainContent.json")
 
 # return JSON string of docs
 json_export = docs.to_json()
