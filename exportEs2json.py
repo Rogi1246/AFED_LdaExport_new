@@ -11,16 +11,19 @@ elastic_client = Elasticsearch(['betaweb015', 'betaweb017', 'betaweb020'],
                          sniff_on_start=True, sniff_on_connection_fail=True, timeout=360)
 
 # toal num of documents to be retrieved :
-total_docs = 2000
+total_docs = 20
 # print("\n calling Elasticsearch for", total_docs, "docs ")
 # API-call to the cluster to actually get docs
 
 query = {
-    # "size" : 10000,
+    # "size": 10000,
+    "_source": ["text_plain"],
     "query": {
         "bool": {
             "must": [{
-                "match": {"text_plain": "economy"}
+                "match": {"text_plain": "pollution"}
+            }, {
+                "match": {"text_plain": "waste"}
             }]
         }
     }
@@ -57,7 +60,7 @@ for num, doc in enumerate(elastic_docs):
 
 print("\n exporting objects ")
 # epxort as json file
-docs.to_json("export_hardware.json")
+docs.to_json("export_testSMALL.json")
 
 # return JSON string of docs
 json_export = docs.to_json()
