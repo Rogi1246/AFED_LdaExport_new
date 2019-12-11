@@ -87,4 +87,6 @@ print(dataT['headers'])
 print("---------------printing timestamps---------------")
 print(dataT['@timestamp'])
 
+var = 'from' in dataT
+print(var)
 test_data.close()
