@@ -92,4 +92,7 @@ print(var)
 var2 = dataT.get('from')
 print(var2)
 
+var3 = dataT.keys()
+for key in var3: print(key)
+
 test_data.close()
