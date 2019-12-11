@@ -83,7 +83,9 @@ print("---------------printing timestamps---------------")
 print(dataT['@timestamp'])
 
 # let's try JUST getting the reply headers
-print(dataT['headers']['in_reply_to'])
-in_reply = dataT.headers.in_reply_to
-print(in_reply)
+print("---------------printing in_reply_to-headers---------------")
+for i in range(0, len(dataT['headers'])):
+    print(dataT['headers'][i]['in_reply_to'])
+
+
 test_data.close()
