@@ -23,7 +23,7 @@ total_docs = 20
 
 query = {
     # "size": 10000,
-    "_source": ["@timestamp","headers","text-plain"],
+    "_source": ["@timestamp","headers","text_plain"],
     "query": {
         "bool": {
             "must": [{
