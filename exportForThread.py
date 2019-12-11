@@ -82,7 +82,7 @@ dtest = pd.read_json('export_TEST.json')
 
 # printing headers and timestamps working.
 print("---------------printing headers---------------")
-print(dataT['headers'[0]])
+print(dataT[0])
 print("---------------printing timestamps---------------")
 print(dataT['@timestamp'])
 
