@@ -72,5 +72,10 @@ json_export = docs.to_json()
 
 test_data = open('export_TEST.json')
 dataT = json.load(test_data)
+
+# working
+print("---------------printing headers---------------")
 print(dataT['headers'])
+print("---------------printing timestamps---------------")
+print(dataT['@timestamps'])
 test_data.close()
