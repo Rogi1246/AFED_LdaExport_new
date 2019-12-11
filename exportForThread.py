@@ -74,28 +74,17 @@ json_export = docs.to_json()
 
 # let's start
 # extract the headers and timestamps from the mails
-f = open(sys.argv[1])
+
 test_data = open('export_TEST.json')
 dataT = json.load(test_data)
 
 # or just :
 dtest = pd.read_json('export_TEST.json')
 
-
 # printing headers and timestamps working.
 print("---------------printing headers---------------")
 print(dataT['headers'])
 print("---------------printing timestamps---------------")
 print(dataT['@timestamp'])
-
-for line in f:
-    j = json.load(line)
-    try:
-        if 'in_reply_to' in j:
-            print('TEXT: ', j['in_reply_to'])
-        elif 'from' in j:
-            print('FROM: ', j['from'])
-    except:
-        print("EXCEPT ", j)
 
 test_data.close()
