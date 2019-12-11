@@ -64,7 +64,7 @@ for num, doc in enumerate(elastic_docs):
 
 print("\n exporting objects ")
 # epxort as json file
-docs.to_json("export_testSMALL.json")
+docs.to_json("export_Q_Islam.json")
 
 # return JSON string of docs
 json_export = docs.to_json()
