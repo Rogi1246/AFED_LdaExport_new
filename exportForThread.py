@@ -69,3 +69,8 @@ docs.to_json("export_TEST.json")
 # return JSON string of docs
 json_export = docs.to_json()
 # print("\n json data : ", json_export)
+
+test_data = open('export_TEST.json')
+dataT = json.load(test_data)
+print(dataT['headers'])
+test_data.close()
