@@ -45,7 +45,7 @@ print(" putting them in a list ")
 elastic_docs = result["hits"]["hits"]
 
 # create empty Pandas Dataframe
-docs = pandas.DataFrame()
+docs = pd.DataFrame()
 
 # iterate Es-docs in list
 print("\n creating objects from data ")
@@ -57,7 +57,7 @@ for num, doc in enumerate(elastic_docs):
     _id = doc["_id"]
 
     # create series-object
-    doc_data = pandas.Series(source_data, name=_id)
+    doc_data = pd.Series(source_data, name=_id)
 
     # append to DataFrame object
     docs = docs.append(doc_data)
