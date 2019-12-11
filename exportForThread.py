@@ -70,12 +70,20 @@ docs.to_json("export_TEST.json")
 json_export = docs.to_json()
 # print("\n json data : ", json_export)
 
+
+# let's start
+# extract the headers and timestamps from the mails
 test_data = open('export_TEST.json')
 dataT = json.load(test_data)
 
-# working
+# printing headers and timestamps working.
 print("---------------printing headers---------------")
 print(dataT['headers'])
 print("---------------printing timestamps---------------")
 print(dataT['@timestamp'])
+
+# let's try JUST getting the reply headers
+print(dataT['headers']['in_reply_to'])
+in_reply = dataT.headers.in_reply_to
+print(in_reply)
 test_data.close()
