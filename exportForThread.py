@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 
 from elasticsearch import Elasticsearch
+import objectpath
 
 # first : an Elasticsearch instance is required
 elastic_client = Elasticsearch(['betaweb015', 'betaweb017', 'betaweb020'],
@@ -75,27 +76,11 @@ json_export = docs.to_json()
 # let's start
 # extract the headers and timestamps from the mails
 
-test_data = open('export_TEST.json')
-dataT = json.load(test_data)
+with open("export_TEST.json") as datafile: data = json.load(datafile)
+tree = objectpath.Tree(data['headers'])
+from_ = tuple(tree.execute('$..from'))
+in_reply_to_ = tuple(tree.execute('$..in_reply_to'))
 
-# or just :
-dtest = pd.read_json('export_TEST.json')
 
-# printing headers and timestamps working.
-print("---------------printing headers---------------")
-print(dataT['headers'])
-print("---------------printing timestamps---------------")
-print(dataT['@timestamp'])
+print("FROM : ", from_, "IN_REPLY : ", in_reply_to_)
 
-var = 'from' in dataT
-print(var)
-var2 = dataT.get('from')
-print(var2)
-
-var3 = dataT.keys()
-for key in dataT.keys():
-    if isinstance(dataT[key], dict):
-        print("--------------TEST--------------")
-        print(key, dataT[key])
-
-test_data.close()
