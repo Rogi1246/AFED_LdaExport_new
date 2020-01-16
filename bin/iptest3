@@ -1,4 +1,4 @@
-#!/home/rogi1246/PycharmProjects/AFED_LDA_EXPORT/venv/bin/python
+#!/home/vanessa/Documents/AFED/AFED_LdaExport_new/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

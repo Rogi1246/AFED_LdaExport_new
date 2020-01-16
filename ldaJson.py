@@ -1,6 +1,6 @@
 import codecs
 import sys
-# import nltk
+
 from nltk.corpus import stopwords
 # nltk.download()
 import re
@@ -10,17 +10,18 @@ from pprint import pprint
 import gensim
 import gensim.corpora as corpora
 from gensim.models import CoherenceModel
-from gensim.utils import simple_preprocess
+# from gensim.utils import simple_preprocess
+
 # spacy is generally for Natural Language Processing
 # import spacy for lemmatization
 # (spacy.load)en_core_web_sm or de_core_news_sm (python3 -m spacy download en (or de for german))
 import spacy
-nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
 # plotting
-import pyLDAvis
 import pyLDAvis.gensim
 # warnings
 import warnings
+
+nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
 
 # Latent Dirichlet Allocation = LDA
 # generative statistical model that allows sets of observations
@@ -51,14 +52,6 @@ text_corpus = [re.sub('\s+', ' ', doc) for doc in text_corpus]
 text_corpus = [re.sub("\'", "", doc) for doc in text_corpus]
 
 
-# print(text_corpus[1])
-
-# next up : Tokenizing words
-# -> breaking up a sequence of strings into pieces (tokens)
-# removing punctuation
-# provided by gensim
-
-
 def doc_to_words(sentences):
     for sentence in sentences:
         yield gensim.utils.simple_preprocess(str(sentence.encode('utf-8')), deacc=True)
@@ -71,8 +64,8 @@ def removing_stopwords(text):
     return [[word for word in gensim.utils.simple_preprocess(str(doc.encode('utf-8'))) if word not in stop_words] for
             doc in text_corpus]
 
-words = removing_stopwords(words)
 
+words = removing_stopwords(words)
 
 # lemmatization :
 # words that appear in various forms, so we want the base form of that word
@@ -118,16 +111,6 @@ doc_lda = lda_model[corpus]
 # representing the top 10 keywords, and the weight of each one
 # the weight reflecting, how important the keyword is to that topic
 #
-# now we can visualize
-#
-#
-# this :
-# pyLDAvis.enable_notebook()
-# vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word)
-# vis
-# when using notebook
-#
-# this when running as a script
-# not yet working ( taking way too long )
+# onto visualizing
 visualization = pyLDAvis.gensim.prepare(lda_model, corpus, id2word)
 pyLDAvis.save_html(visualization, 'LDA_Visual.html')
