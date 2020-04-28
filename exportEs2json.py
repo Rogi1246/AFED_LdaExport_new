@@ -8,7 +8,7 @@ elastic_client = Elasticsearch(['betaweb015', 'betaweb017', 'betaweb020'],
                          sniff_on_start=True, sniff_on_connection_fail=True, timeout=360)
 
 # toal num of documents to be retrieved :
-total_docs = 20
+total_docs = 2
 # API-call to the cluster to actually get docs
 # query
 query = {
